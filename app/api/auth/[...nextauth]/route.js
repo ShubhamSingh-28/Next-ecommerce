@@ -18,7 +18,7 @@ export const authOptions = nextAuth({
     ],
     callbacks:{
         async signIn({user,account}){
-            if (account?.provider === 'github') {
+            
                 await Connectdb()
                try {
                 const currentUser = await User.findOne({email:user.email})
@@ -39,32 +39,8 @@ export const authOptions = nextAuth({
                 console.log("Error while saving");
                 return false
                }
-            }
         },
-        async signIn({user,account}){
-            if (account?.provider === 'google') {
-                await Connectdb()
-               try {
-                const currentUser = await User.findOne({email:user.email})
-                if(!currentUser){
-                    const Name = user.name.replace(/\s+/g, "")+"g"
-                    const Username = user.name.replace(/\s+/g, "")
-                   const newUser= new User({
-                    email:user.email,
-                    name:Name,
-                    username:Username,
-                   })
-                   
-                   await newUser.save()
-                  return true
-                  } 
-                  return true
-               } catch (error) {
-                console.log("Error while saving");
-                return false
-               }
-            }
-        },
+       
         async session({session, user, token}){
             await Connectdb()
             const dbuser = await User.findOne({email:session.user.email})

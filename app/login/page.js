@@ -6,10 +6,10 @@ import { redirect } from "next/navigation"
 function Login() {
   
   const { data: session } = useSession()
-  if (session) redirect('/')
+  if (session?.user) redirect('/')
   
   return (
-    <div className=" text-center h-screen flex items-center justify-center ">
+    <div className=" text-center h-screen flex items-center justify-center bg-slate-600  ">
 
     <div className="border rounded-md  w-full max-w-sm mx-1 bg-white p-6 border-violet-600 dark:bg-gray-900" id="login-model">
    
