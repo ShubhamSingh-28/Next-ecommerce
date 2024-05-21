@@ -1,15 +1,13 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
 const imgs = [
-  "/imgs/nature/1.jpg",
-  "/imgs/nature/2.jpg",
-  "/imgs/nature/3.jpg",
-  "/imgs/nature/4.jpg",
-  "/imgs/nature/5.jpg",
-  "/imgs/nature/6.jpg",
-  "/imgs/nature/7.jpg",
+  "https://wallpapercave.com/wp/wp2858551.jpg",
+  "https://th.bing.com/th/id/OIP.PYipJ_hSncugM2SwnZitvgHaEK?w=4550&h=2559&rs=1&pid=ImgDetMain",
+  "https://www.pixelstalk.net/wp-content/uploads/2016/08/Best-Nature-Full-HD-Images-For-Desktop.jpg",
+  "https://www.thewowstyle.com/wp-content/uploads/2015/01/images-of-nature-4.jpg",
+  "https://th.bing.com/th/id/OIP.cKTq4enAGO_Wg_Omp0ysngAAAA?rs=1&pid=ImgDetMain",
 ];
 
 const ONE_SECOND = 1000;
@@ -25,7 +23,6 @@ const SPRING_OPTIONS = {
 
 export const SwipeCarousel = () => {
   const [imgIndex, setImgIndex] = useState(0);
-
   const dragX = useMotionValue(0);
 
   useEffect(() => {
@@ -33,17 +30,12 @@ export const SwipeCarousel = () => {
       const x = dragX.get();
 
       if (x === 0) {
-        setImgIndex((pv) => {
-          if (pv === imgs.length - 1) {
-            return 0;
-          }
-          return pv + 1;
-        });
+        setImgIndex((pv) => (pv === imgs.length - 1 ? 0 : pv + 1));
       }
     }, AUTO_DELAY);
 
     return () => clearInterval(intervalRef);
-  }, []);
+  }, [dragX]);
 
   const onDragEnd = () => {
     const x = dragX.get();
@@ -59,16 +51,9 @@ export const SwipeCarousel = () => {
     <div className="relative overflow-hidden bg-neutral-950 py-8">
       <motion.div
         drag="x"
-        dragConstraints={{
-          left: 0,
-          right: 0,
-        }}
-        style={{
-          x: dragX,
-        }}
-        animate={{
-          translateX: `-${imgIndex * 100}%`,
-        }}
+        dragConstraints={{ left: 0, right: 0 }}
+        style={{ x: dragX }}
+        animate={{ translateX: `-${imgIndex * 100}%` }}
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
         className="flex cursor-grab items-center active:cursor-grabbing"
@@ -85,23 +70,19 @@ export const SwipeCarousel = () => {
 const Images = ({ imgIndex }) => {
   return (
     <>
-      {imgs.map((imgSrc, idx) => {
-        return (
-          <motion.div
-            key={idx}
-            style={{
-              backgroundImage: `url(${imgSrc})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-            animate={{
-              scale: imgIndex === idx ? 0.95 : 0.85,
-            }}
-            transition={SPRING_OPTIONS}
-            className="aspect-video w-screen shrink-0 rounded-xl bg-neutral-800 object-cover"
-          />
-        );
-      })}
+      {imgs.map((imgSrc, idx) => (
+        <motion.div
+          key={idx}
+          style={{
+            backgroundImage: `url(${imgSrc})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          animate={{ scale: imgIndex === idx ? 0.95 : 0.85 }}
+          transition={SPRING_OPTIONS}
+          className="aspect-video w-screen shrink-0 rounded-xl bg-neutral-800 object-cover"
+        />
+      ))}
     </>
   );
 };
@@ -109,17 +90,15 @@ const Images = ({ imgIndex }) => {
 const Dots = ({ imgIndex, setImgIndex }) => {
   return (
     <div className="mt-4 flex w-full justify-center gap-2">
-      {imgs.map((_, idx) => {
-        return (
-          <button
-            key={idx}
-            onClick={() => setImgIndex(idx)}
-            className={`h-3 w-3 rounded-full transition-colors ${
-              idx === imgIndex ? "bg-neutral-50" : "bg-neutral-500"
-            }`}
-          />
-        );
-      })}
+      {imgs.map((_, idx) => (
+        <button
+          key={idx}
+          onClick={() => setImgIndex(idx)}
+          className={`h-3 w-3 rounded-full transition-colors ${
+            idx === imgIndex ? "bg-neutral-50" : "bg-neutral-500"
+          }`}
+        />
+      ))}
     </div>
   );
 };

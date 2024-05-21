@@ -35,7 +35,7 @@ function Navbar() {
     <section>
       <div
         className={`fixed z-50 shadow-lg w-full lg:px-8 px-5 py-0 transition-all duration-1000 rounded-full mt-4 inset-x-0 mx-auto ease-in-out transform ${
-          atTop ? 'max-w-6xl' : ' bg-slate-800 bg-opacity-90 backdrop-blur-xl lg:max-w-4xl md:max-w-3xl max-w-[90%]'
+          atTop ? 'max-w-6xl' : '  bg-opacity-90 backdrop-blur-xl lg:max-w-4xl md:max-w-3xl max-w-[90%]'
 
         }`}
       >
