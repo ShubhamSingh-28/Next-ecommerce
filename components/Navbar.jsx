@@ -35,7 +35,7 @@ function Navbar() {
     <section>
       <div
         className={`fixed z-50 shadow-lg w-full lg:px-8 px-5 py-0 transition-all duration-1000 rounded-full mt-4 inset-x-0 mx-auto ease-in-out transform ${
-          atTop ? 'max-w-full' : ' bg-slate-800 bg-opacity-90 backdrop-blur-xl lg:max-w-4xl md:max-w-3xl max-w-[90%]'
+          atTop ? 'max-w-6xl' : ' bg-slate-800 bg-opacity-90 backdrop-blur-xl lg:max-w-4xl md:max-w-3xl max-w-[90%]'
 
         }`}
       >
@@ -53,7 +53,7 @@ function Navbar() {
     session?.user ? (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-        <Image src={session?.user?.image} className=' rounded-full' width={45} height={45} alt='user'/>
+        <Image src={session?.user?.image} className=' cursor-pointer rounded-full' width={45} height={45} alt='user'/>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuItem>
