@@ -5,8 +5,9 @@ import { redirect } from 'next/navigation'
 import React from 'react'
 
 function Cart() { 
-  const {data :session} = useSession()
-  if(!session?.user) redirect('/')
+  const {data } = useSession()
+  console.log(data?.user._id);
+  if(!data?.user) redirect('/')
   return (
     <div>
         <Navbar/>

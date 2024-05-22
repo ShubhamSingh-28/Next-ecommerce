@@ -44,6 +44,7 @@ export const authOptions = nextAuth({
         async session({session, user, token}){
             await Connectdb()
             const dbuser = await User.findOne({email:session.user.email})
+            session.user._id=dbuser?.id
     session.user.name = dbuser?.name
     session.user.username = dbuser?.username
     return session
