@@ -5,7 +5,7 @@ import nextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 
-export const authOptions = nextAuth({
+export const authOptions ={
     providers:[
         GithubProvider({
             clientId: process.env.GITHUB_ID,
@@ -51,5 +51,6 @@ export const authOptions = nextAuth({
         }
     },
     secret:"jljvcjighjdgyukufdujhf",
-})
-export {authOptions as GET, authOptions as POST}
+}
+const handler = nextAuth(authOptions)
+export {handler as GET, handler as POST}
