@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useSession } from 'next-auth/react'
 
-function About() {
+function Admin() {
   const {data :session } = useSession()
   const [data, setData] = useState({ name: "",image:[]});
   const handleChange = (e) => {
@@ -16,7 +16,7 @@ function About() {
 
     try {
       console.log(data);
-      const res = await axios.post("/api/product", data);
+      const res = await axios.post("/api/cart", data);
       setData({ name: "" }); // Clear the form
     } catch (error) {
       console.error("Error submitting the form", error);
@@ -41,4 +41,4 @@ function About() {
   );
 }
 
-export default About;
+export default Admin;
