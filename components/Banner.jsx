@@ -3,45 +3,18 @@ import React from 'react'
 export default function Banner() {
   return (
 
-<section
-  className="relative bg-[url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat"
->
-  <div
-    className="absolute inset-0 bg-white/75 sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l"
-  ></div>
-
-  <div
-    className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8"
-  >
-    <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-      <h1 className="text-3xl font-extrabold sm:text-5xl">
-        Let us find your
-
-        <strong className="block font-extrabold text-rose-700"> Forever Home. </strong>
-      </h1>
-
-      <p className="mt-4 max-w-lg sm:text-xl/relaxed">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus
-        numquam ea!
-      </p>
-
-      <div className="mt-8 flex flex-wrap gap-4 text-center">
-        <a
-          href="#"
-          className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
-        >
-          Get Started
-        </a>
-
-        <a
-          href="#"
-          className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
-        >
-          Learn More
-        </a>
-      </div>
+<section className="px-3 py-5 bg-neutral-100 lg:py-10">
+    <div className="grid lg:grid-cols-2 items-center justify-items-center gap-5">
+        <div className="order-2 lg:order-1 flex flex-col justify-center items-center">
+            <p className="text-4xl font-bold md:text-7xl text-orange-600">25% OFF</p>
+            <p className="text-4xl font-bold md:text-7xl">SUMMER SALE</p>
+            <p className="mt-2 text-sm md:text-lg">For limited time only!</p>
+            <button className="text-lg md:text-2xl bg-black text-white py-2 px-5 mt-10 hover:bg-zinc-800">Shop Now</button>
+        </div>
+        <div className="order-1 lg:order-2">
+            <img className="h-80 w-80 object-cover lg:w-[500px] lg:h-[500px]" src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80" alt=""/>
+        </div>
     </div>
-  </div>
 </section>
   )
 }

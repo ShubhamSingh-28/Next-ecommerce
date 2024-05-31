@@ -40,9 +40,11 @@ function Navbar() {
         }`}
       >
         <div className="flex items-center w-full p-2 ">
+          <Link href={"/"}>
         <span className={`font-bold tracking-tighter uppercase lg:text-2xl text-2xl `}>
            Shopsy
             </span>
+            </Link>
           <nav className={`flex flex-grow lg:gap-8 gap-3 pb-1 pt-2  justify-end`}>
           <Link className=' hidden md:block '  href={'/cart'}>
     <ShoppingCart className={`absolute top-6 `}/>
