@@ -4,11 +4,11 @@ import mongoose, {  Schema } from "mongoose";
 const Productmodel =new Schema({
     name: {
         type: String,
-        required: true
+        required:true
     },
     stocks: {
         type: String,
-        required: true
+        required:true
     },
     owner:{
         type: Schema.Types.ObjectId,
@@ -17,23 +17,31 @@ const Productmodel =new Schema({
     },
     price: {
         type: String,
-        required: true
+        required:true
     },
     description: {
         type: String,
-        required: true
+        required:true
     },
-    image:{
-        type: String,
-        required: true
-    },
+    images:[
+        {
+            public_id:{
+                type:String,
+                required:true
+            },
+            url:{
+                type:String,
+                required:true
+            }
+        }
+    ],
     category:{
         type: String,
-        required: true
+        required:true
     },
     brands:{
         type: String,
-        required: true
+        required:true
     },
 },{timestamps:true});
 
