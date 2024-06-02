@@ -17,13 +17,14 @@ export default function ProductCard({ items }) {
 
   return (
     <div>
-       <Link href={`/products/${items?.[0].id}`}>
+       <Link href={`/products/${items?.[0]._id}`}>
         <div  className="w-80 bg-white shadow rounded-xl">
-          <div className="h-48 w-full bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center rounded-xl" style={{backgroundImage: `url(${items?.[0].images})`}}>
+          <div className="h-48 w-full bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center rounded-xl" style={{backgroundImage: `url(${items?.[0].images?.[0].url})`}}>
+
           </div>
           <div className="p-4 flex flex-col items-center">
-            <p className="text-gray-400 font-light text-xs text-center">{items?.[0].brand}</p>
-            <h1 className="text-gray-800 text-center mt-1">{items?.[0].title}</h1>
+            <p className="text-gray-400 font-light text-xs text-center">{items?.[0].brands}</p>
+            <h1 className="text-gray-800 text-center mt-1">{items?.[0].name}</h1>
             <p className="text-center text-gray-800 mt-1">rs{items?.[0].price}</p>
            
            

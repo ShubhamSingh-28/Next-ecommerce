@@ -14,8 +14,9 @@ function page() {
   const [page, setPage] = useState(1);
   const fetchData = async () => {
     try {
-      const res = await fetch('https://dummyjson.com/products');
+      const res = await fetch('/api/product/getProducts');
       const data = await res.json();
+      //console.log(data);
       setData(data.products);
     } catch (error) {
       console.error("Failed to fetch data", error);
@@ -29,8 +30,10 @@ function page() {
 
     <div>
       <Navbar />
+      
       <div className=" py-24">
       <h2 className="px-20 py-6 text-3xl font-bold">All Products</h2>
+      
         <div className="my-4 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-x-3 lg:mx-28 mx-10 gap-y-6">
             { data.slice(page * 12 -12, page*12).map((product, index) => (
             <ProductCard key={index} items={[product]} />
@@ -52,7 +55,9 @@ function page() {
             <ArrowRight/>
           </div>
         </div>
+
         </div>
+
     </div>
   )
 }
