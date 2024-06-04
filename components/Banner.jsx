@@ -3,18 +3,18 @@ import React from 'react'
 export default function Banner() {
   return (
 
-<section className="px-3 py-5 bg-neutral-100 lg:py-10">
-    <div className="grid lg:grid-cols-2 items-center justify-items-center gap-5">
-        <div className="order-2 lg:order-1 flex flex-col justify-center items-center">
-            <p className="text-4xl font-bold md:text-7xl text-orange-600">25% OFF</p>
-            <p className="text-4xl font-bold md:text-7xl">SUMMER SALE</p>
-            <p className="mt-2 text-sm md:text-lg">For limited time only!</p>
-            <button className="text-lg md:text-2xl bg-black text-white py-2 px-5 mt-10 hover:bg-zinc-800">Shop Now</button>
-        </div>
-        <div className="order-1 lg:order-2">
-            <img className="h-80 w-80 object-cover lg:w-[500px] lg:h-[500px]" src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80" alt=""/>
-        </div>
-    </div>
-</section>
+<div className="relative bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
+  <div className="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1522252234503-e356532cafd5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw2fHxjb2RlfGVufDB8MHx8fDE2OTQwOTg0MTZ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Background Image" className="object-cover object-center w-full h-full" />
+    <div className="absolute inset-0 bg-black opacity-50"></div>
+  </div>
+  
+  <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
+    <h1 className="text-5xl font-bold leading-tight mb-4">Welcome to Our Awesome Website</h1>
+    <p className="text-lg text-gray-300 mb-8">Discover amazing features and services that await you.</p>
+    <a href="#" className="bg-yellow-400 text-gray-900 hover:bg-yellow-300 py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">Get Started</a>
+  </div>
+</div>
+
   )
 }

@@ -3,10 +3,26 @@
 import { useSession } from "next-auth/react"
 import { redirect } from "next/navigation"
 import Navbar from "@/components/Navbar";
+import { useEffect, useState } from "react";
 
 function Cart() { 
   const { data: session } = useSession()
   if (!session?.user) redirect('/login')
+    const [data, setData] = useState([])
+  const fetchData = async () => {
+    try {
+      const res = await fetch('/api/product/');
+      const data = await res.json();
+      console.log(data);
+      setData(data.products);
+    } catch (error) {
+      console.error("Failed to fetch data", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div>
         <Navbar/>

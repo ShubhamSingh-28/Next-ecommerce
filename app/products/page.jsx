@@ -7,7 +7,7 @@ import ProductCard from "@/components/ProductCard";
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-function page() {
+function Products() {
   const { data: session } = useSession()
   if (!session?.user) redirect('/login')
     const [data, setData] = useState([]);
@@ -62,4 +62,4 @@ function page() {
   )
 }
 
-export default page
+export default Products
