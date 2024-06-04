@@ -11,7 +11,7 @@ function Cart() {
     const [data, setData] = useState([])
   const fetchData = async () => {
     try {
-      const res = await fetch('/api/product/');
+      const res = await fetch('/api/cart');
       const data = await res.json();
       console.log(data);
       setData(data.products);
