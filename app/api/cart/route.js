@@ -40,8 +40,8 @@ export const GET = async()=>{
         if (!session || !session.user || !session.user._id) {
           return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
-        console.log(session);    
-        return NextResponse.json({ message: "Product added in cart successfully" }, { status: 200 });
+        const viewCart  = await Cart.find({user: session.user._id})   
+        return NextResponse.json({viewCart, message: "Product added in cart successfully" }, { status: 200 });
     } catch (error) {
         console.error("Error creating product:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

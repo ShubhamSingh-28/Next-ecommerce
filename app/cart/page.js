@@ -1,28 +1,64 @@
 "use client";
 
 import axios from 'axios';
-import { useSession } from "next-auth/react"
-import { redirect } from "next/navigation"
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
 
 function Cart() { 
-  const { data: session } = useSession()
-  if (!session?.user) redirect('/login')
-    const [data, setData] = useState([])
-  const fetchData = async () => {
+  const { data: session } = useSession();
+  const router = useRouter();
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  if (!session?.user) {
+    router.push('/login');
+    return null; // Prevent further rendering until redirection
+  }
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const prod = await fetch('/api/cart');
+        const data2 = await prod.json();
+        console.log(data2);
+        //setData(data2.products);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setError('Failed to fetch products');
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+/*
+  const fetchData = async (productId) => {
     try {
-      const res = await axios.post('/api/cart',{productId:"66616d64a00d896cf5b78faf"});
-      console.log(res.data);
+      const res = await axios.post('/api/cart', { productId });
+      
     } catch (error) {
       console.error('Error creating product:', error);
     }
   };
-
-
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (data.length > 0) {
+      const productId = data[1]._id;
+      fetchData(productId);
+    }
+  }, [data]);
+*/
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
     <div>
         <Navbar/>
