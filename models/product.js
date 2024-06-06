@@ -7,7 +7,7 @@ const Productmodel =new Schema({
         required:true
     },
     stocks: {
-        type: String,
+        type: Number,
         required:true
     },
     owner:{
@@ -16,7 +16,7 @@ const Productmodel =new Schema({
         required: true
     },
     price: {
-        type: String,
+        type: Number,
         required:true
     },
     description: {

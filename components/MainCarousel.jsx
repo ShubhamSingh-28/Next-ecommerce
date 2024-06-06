@@ -15,7 +15,7 @@ function MainCarousel() {
     try {
       const res = await fetch('api/product/getProducts');
       const data = await res.json();
-      console.log(data);
+      
       setData(data.products);
     } catch (error) {
       console.error("Failed to fetch data", error);
@@ -49,7 +49,7 @@ function MainCarousel() {
 
  
   return (
-    <div className='my-5  gap-4 shadow-xl lg:w-[97%] w-[88%] m-auto '>
+    <div className='my-5  gap-0 shadow-xl lg:w-[97%] w-[88%] m-auto '>
       <div className=' text-end px-6 pt-4'>
       <Button className=" text-xl rounded-xl" variant="destructive">
         <Link href={"products"}>

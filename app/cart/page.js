@@ -1,5 +1,6 @@
-"use client"
+"use client";
 
+import axios from 'axios';
 import { useSession } from "next-auth/react"
 import { redirect } from "next/navigation"
 import Navbar from "@/components/Navbar";
@@ -11,14 +12,13 @@ function Cart() {
     const [data, setData] = useState([])
   const fetchData = async () => {
     try {
-      const res = await fetch('/api/cart');
-      const data = await res.json();
-      console.log(data);
-      setData(data.products);
+      const res = await axios.post('/api/cart',{productId:"66616d64a00d896cf5b78faf"});
+      console.log(res.data);
     } catch (error) {
-      console.error("Failed to fetch data", error);
+      console.error('Error creating product:', error);
     }
   };
+
 
   useEffect(() => {
     fetchData();

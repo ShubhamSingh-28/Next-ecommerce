@@ -10,9 +10,13 @@ const CartSchema = new Schema({
         ref:"User"
     },
     quantity: {
-        type: String,
+        type: Number,
         required: true
     },
+    totalPrice:{
+        type: Number,
+        required: true
+    }
 },{timestamps:true})
 
  const Cart = models.Cart || model("Cart", CartSchema)

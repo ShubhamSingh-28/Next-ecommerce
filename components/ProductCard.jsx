@@ -13,7 +13,7 @@ export default function ProductCard({ items }) {
     )
   }
 
-  console.log(items);
+  
 
   return (
     <div className=" w-full flex items-center justify-center bg-gray-200 dark:bg-gray-800">
