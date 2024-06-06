@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { Button } from './ui/button';
+import Image from "next/image";
 
 function MainCarousel() {
  const [data, setData] = useState([]);
@@ -48,9 +49,9 @@ function MainCarousel() {
 
  
   return (
-    <div className='my-5 bg-yellow-200 gap-4 shadow-xl lg:w-[97%] w-[88%] m-auto '>
+    <div className='my-5  gap-4 shadow-xl lg:w-[97%] w-[88%] m-auto '>
       <div className=' text-end px-6 pt-4'>
-      <Button className=" text-lg rounded-xl" variant="destructive">
+      <Button className=" text-xl rounded-xl" variant="destructive">
         <Link href={"products"}>
         view All
         </Link>
@@ -59,17 +60,24 @@ function MainCarousel() {
       <Slider {...settings}>
   
       {data.map((d, index) => (
+          <div key={index} className="relative -left-4 m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
           
-         <div  key={index} className=" px-10 h-80 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">      
-              <img  src={d.images?.[0].url } alt="" className="h-80 w-72 object-cover rounded-t-xl"/>
-              <div className="px-4 py-3 w-72">
-                <span className="text-gray-400 mr-3 uppercase text-xs">{d.brands}</span>
-                <p className="text-lg font-bold text-black truncate block capitalize">{d.name} </p>
-                <div className="flex items-center">
-                    <p className="text-lg font-semibold text-black cursor-auto my-3">${d.price}</p>
-                </div>
-            </div>         
-         </div>        
+            <Image className=" h-[270px] lg:h-[340px]" width={500} height={100} src={d.images?.[0].url} alt="product image" />
+         
+          <div className="mt-4 px-5 pb-5">
+           
+              <h5 className="text-xl tracking-tight text-slate-900">{d.name}</h5>
+            
+            <div className="mt-2 mb-5 flex items-center justify-between">
+              <p>
+                <span className="text-3xl font-bold text-slate-900">${d.price}</span>
+              </p>
+              <div className="flex items-center">
+                <span className="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">{d.stocks}.0</span>
+              </div>
+            </div>
+          </div>
+        </div>      
         ))}
 </Slider>
 </div>

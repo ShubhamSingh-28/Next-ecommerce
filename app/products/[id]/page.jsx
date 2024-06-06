@@ -1,4 +1,5 @@
 "use client"
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import React, { useState, useEffect} from 'react'
 
@@ -85,7 +86,8 @@ const fetchData = async () => {
         </div>
     </div>
 </div>
- 
+
+<Footer/>
     </div>
   )
 }

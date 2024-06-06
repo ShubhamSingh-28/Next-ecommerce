@@ -13,26 +13,25 @@ export default function ProductCard({ items }) {
     )
   }
 
-  //console.log(items);
+  console.log(items);
 
   return (
+    <div className=" w-full flex items-center justify-center bg-gray-200 dark:bg-gray-800">
+ 
+  <Link href={`products/${items[0]._id}`} className="max-w-sm w-full  bg-white rounded-lg shadow-lg overflow-hidden dark:bg-gray-700">
     <div>
-       <Link href={`/products/${items?.[0]._id}`}>
-        <div  className="w-80 bg-white shadow rounded-xl">
-          <div className="h-48 w-full bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center rounded-xl" style={{backgroundImage: `url(${items?.[0].images?.[0].url})`}}>
-
-          </div>
-          <div className="p-4 flex flex-col items-center">
-            <p className="text-gray-400 font-light text-xs text-center">{items?.[0].brands}</p>
-            <h1 className="text-gray-800 text-center mt-1">{items?.[0].name}</h1>
-            <p className="text-center text-gray-800 mt-1">rs{items?.[0].price}</p>
-           
-           
-              
-          </div>
-        </div>
-            </Link>
-
+      <img className="object-cover h-64 w-full" src={items[0].images[0].url} alt="Converse sneakers" />
     </div>
+
+    <div className="flex flex-col gap-1 mt-4 px-4">
+      <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-50">{items[0].name}</h2>
+      <span className="font-normal text-gray-600 dark:text-gray-300">{items[0].brands}</span>
+      <span className="font-semibold text-gray-800 dark:text-gray-50">${items[0].price}</span>
+    </div>
+
+    
+  </Link>
+</div>
+
   );
 }

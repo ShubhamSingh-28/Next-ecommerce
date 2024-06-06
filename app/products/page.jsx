@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import Footer from "@/components/Footer";
 
 function Products() {
   const { data: session } = useSession()
@@ -57,7 +58,7 @@ function Products() {
         </div>
 
         </div>
-
+        <Footer/>
     </div>
   )
 }
