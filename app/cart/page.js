@@ -24,10 +24,10 @@ function Cart() {
         const prod = await fetch('/api/cart');
         const data2 = await prod.json();
         console.log(data2);
-        //setData(data2.products);
+        setData(data2.products);
         setLoading(false);
       } catch (error) {
-        console.log(error);
+        console.error(error);
         setError('Failed to fetch products');
         setLoading(false);
       }
@@ -35,22 +35,8 @@ function Cart() {
 
     fetchProducts();
   }, []);
-/*
-  const fetchData = async (productId) => {
-    try {
-      const res = await axios.post('/api/cart', { productId });
-      
-    } catch (error) {
-      console.error('Error creating product:', error);
-    }
-  };
-  useEffect(() => {
-    if (data.length > 0) {
-      const productId = data[1]._id;
-      fetchData(productId);
-    }
-  }, [data]);
-*/
+ 
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -58,6 +44,7 @@ function Cart() {
   if (error) {
     return <div>{error}</div>;
   }
+
 
   return (
     <div>

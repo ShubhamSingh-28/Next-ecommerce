@@ -7,7 +7,7 @@ export const GET=async(req,{params})=>{
     try {
         const param = params;
         Connectdb();
-        const products = await Product.findById(param.id);
+        const products = await Product.findById(param.id).populate("owner");
         if (!products) {
             return new NextResponse(JSON.stringify({message: "product not found"}),{status:400})
         }
