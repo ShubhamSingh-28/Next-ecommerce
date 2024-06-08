@@ -62,7 +62,7 @@ function MainCarousel() {
       {data.map((d, index) => (
           <div key={index} className="relative -left-4 m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
           
-            <Image className=" h-[270px] lg:h-[340px]" width={500} height={100} src={d.images?.[0].url} alt="product image" />
+            <Image className=" h-[270px] lg:h-[280px]" width={500} height={100} src={d.images?.[0].url} alt="product image" />
          
           <div className="mt-4 px-5 pb-5">
            

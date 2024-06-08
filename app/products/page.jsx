@@ -33,9 +33,9 @@ function Products() {
       <Navbar />
       
       <div className=" py-24">
-      <h2 className="px-20 py-6 text-3xl font-bold">All Products</h2>
+      <h2 className=" px-16 py-6 text-3xl font-bold">All Products</h2>
       
-        <div className="my-4 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-x-3 lg:mx-28 mx-10 gap-y-6">
+        <div className="my-4 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-x-10 lg:mx-28 mx-10 gap-y-9">
             { data.slice(page * 12 -12, page*12).map((product, index) => (
             <ProductCard key={index} items={[product]} />
           ))  }
