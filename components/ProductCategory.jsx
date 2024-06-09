@@ -114,7 +114,7 @@ const ProductCategory = () => {
             {/* ::Background Picture */}
             <div>
               {/* :::picture */}
-              <Image src="/model-man2-81cb793bea6706ced7de0972a24bfa99.jpg" width={900} height={900} alt="men fashion" className="absolute inset-0 w-full h-full object-cover object-center" />
+              <Image priority src="/model-man2-81cb793bea6706ced7de0972a24bfa99.jpg" width={900} height={900} alt="men fashion" className="absolute inset-0 w-full h-full object-cover object-center" />
               {/* :::overlay */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-700 opacity-50" />
             </div>

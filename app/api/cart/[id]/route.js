@@ -15,7 +15,6 @@ export const POST = async(req,{params})=>{
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
         const param = params
-        console.log(param.id);
         const product = await Product.findOne({_id:param.id });
         if (!product) {
             return NextResponse.json({ error: "Product not found" }, { status: 404 });
@@ -45,3 +44,45 @@ export const POST = async(req,{params})=>{
         return NextResponse.json({ error: "Internal server error" }, { status: 500 });
     }
 };
+
+export const PUT = async(req,{params})=>{
+    try {
+        await Connectdb()
+        const param = params
+        const session = await getServerSession(authOptions);
+        if (!session || !session.user || !session.user._id) {
+          return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        }
+        const product = await Product.findOne({_id:param.id });
+        if (!product) {
+            return NextResponse.json({ error: "Product not found" }, { status: 404 });
+        }
+
+        let cartItem = await Cart.findOne({ user: session.user._id, product: param.id });
+        if (cartItem) {
+            cartItem.quantity -= 1;
+            cartItem.totalPrice = cartItem.totalPrice - product.price ;
+            await cartItem.save();
+        }
+        return NextResponse.json({ cartItem, message: "Product added to cart successfully" }, { status: 200 });
+    } catch (error) {
+        console.error("Error adding product to cart:", error);
+        return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+    }
+};
+
+export const DELETE = async(req,{params})=>{
+    try {
+        await Connectdb()
+        const param = params
+        const session = await getServerSession(authOptions);
+        if (!session || !session.user || !session.user._id) {
+          return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        }
+        let cartItem = await Cart.findOneAndDelete({ user: session.user._id, product: param.id });
+        return NextResponse.json({ cartItem, message: "Product added to cart successfully" }, { status: 200 });
+    } catch (error) {
+        console.error("Error adding product to cart:", error);
+        return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+    }
+}   

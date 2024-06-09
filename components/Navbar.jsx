@@ -16,7 +16,7 @@ import { ShoppingCart } from 'lucide-react';
 function Navbar() {
   const {data: session}=useSession()
   const [atTop, setAtTop] = useState(true);
-  const [open, setOpen] = useState(false);
+  const [data, setData] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +29,22 @@ function Navbar() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(()=>{
+    const fetchcount = async () => {
+      try {
+        const res = await fetch('/api/cart/count');
+        const data2 = await res.json();
+        setData(data2);
+      } catch (error) {
+        console.error("Failed to fetch data", error);
+      }
+    };
+    if (session) { 
+      fetchcount()
+    }
+  
+  },[])
 
   
   return (
@@ -48,14 +64,14 @@ function Navbar() {
           <nav className={`flex flex-grow lg:gap-8 gap-3 pb-1 pt-2  justify-end`}>
           <Link className=' hidden md:block '  href={'/cart'}>
     <ShoppingCart className={`absolute top-6 `}/>
-    <span className=' relative bottom-2 left-3 bg-red-600 rounded-full px-2 py-1 text-white'>2</span>
+    <span className=' relative bottom-2 left-3 bg-red-600 rounded-full px-2 py-1 text-white'>{data ? data?.cartCount : 0}</span>
     </Link>
     <ModeToggle/>
   {
     session?.user ? (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-        <Image src={session?.user?.image} className=' cursor-pointer rounded-full' width={45} height={45} alt='user'/>
+        <Image priority src={session?.user?.image} className=' cursor-pointer rounded-full' width={45} height={45} alt='user'/>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuItem>
@@ -68,7 +84,7 @@ function Navbar() {
           <DropdownMenuItem>
           <Link className=' md:hidden'  href={'/cart'}>
     <ShoppingCart className=' absolute'/>
-    <span className=' relative bottom-3 left-5 bg-red-600 rounded-full px-2 py-1 text-white'>2</span>
+    <span className=' relative bottom-3 left-5 bg-red-600 rounded-full px-2 py-1 text-white'>{data ? data?.cartCount : 0 }</span>
     </Link>
           </DropdownMenuItem>
         <DropdownMenuItem onClick={() => signOut()}>
