@@ -17,11 +17,11 @@ const ProductCategory = () => {
 
         {/* :CATEGORY 1 -> LARGEST, LEFT */}
         <div className="order-1 lg:row-span-2 col-span-2 relative shadow rounded-md overflow-hidden bg-pink-100 filter hover:shadow-lg hover:brightness-125">
-          <Link href={`/products/category/women-collection`} className="pt-8 pb-20 px-5 block w-full h-full">
+          <Link href={`/products/category/women`} className="pt-8 pb-20 px-5 block w-full h-full">
             {/* ::Background Picture */}
             <div>
               {/* :::picture */}
-              <Image src="/model-woman2-ee6e3c8ec2648417a86c813d9acd0ac3.jpg" width={500} height={100} alt="women Fashion" className="absolute inset-0 w-full h-full object-cover object-center" />
+              <Image priority src="/model-woman2-ee6e3c8ec2648417a86c813d9acd0ac3.jpg" width={500} height={100} alt="women Fashion" className="absolute inset-0 w-full h-full object-cover object-center" />
               {/* :::overlay */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-gray-600 opacity-70" />
             </div>
@@ -48,7 +48,7 @@ const ProductCategory = () => {
             {/* ::Background Picture */}
             <div>
               {/* :::picture */}
-              <Image src={"/OIP.jpg"} width={500} height={100} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
+              <Image src={"/OIP.jpg"} width={500} height={100} alt="" priority className="absolute inset-0 w-full h-full object-cover object-center" />
               {/* :::overlay */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-gray-600 opacity-70" />
             </div>
@@ -92,7 +92,7 @@ const ProductCategory = () => {
             {/* ::Background Picture */}
             <div>
               {/* :::picture */}
-              <Image src="/Laptop.jpg"  width={500} height={100} alt="women" className="absolute inset-0 w-full h-full object-cover object-center" />
+              <Image src="/Laptop.jpg" priority  width={500} height={100} alt="women" className="absolute inset-0 w-full h-full object-cover object-center" />
               {/* :::overlay */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-black via-transparent opacity-70" />
             </div>
@@ -110,7 +110,7 @@ const ProductCategory = () => {
         
         {/* :CATEGORY 5 -> TALL, RIGHT */}
         <div className="order-5 lg:row-span-2 col-span-full sm:col-span-1 relative shadow rounded-md overflow-hidden bg-blue-800 filter hover:shadow-lg hover:brightness-125">
-          <Link href={`/products/category/men-collection`} className="py-5 px-5 block w-full h-full">
+          <Link href={`/products/category/men`} className="py-5 px-5 block w-full h-full">
             {/* ::Background Picture */}
             <div>
               {/* :::picture */}
