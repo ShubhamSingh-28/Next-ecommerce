@@ -68,7 +68,7 @@ function Cart() {
   }, [shouldRefetch]);
 
   if (!data.length) {
-    return(<div>Loading...</div>)
+    return(<div>No product added in cart</div>)
   }
   //console.log(data);
   
