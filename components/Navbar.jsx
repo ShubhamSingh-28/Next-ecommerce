@@ -16,7 +16,7 @@ import { ShoppingCart } from 'lucide-react';
 function Navbar() {
   const {data: session}=useSession()
   const [atTop, setAtTop] = useState(true);
-  const [data, setData] = useState(0);
+  const [data, setData] = useState();
 
   useEffect(() => {
     const handleScroll = () => {

@@ -72,7 +72,7 @@ function Cart() {
   }
   console.log(data);
   
-  const Subtotal = data.reduce((total, purchase) => total + purchase.totalPrice, 0);
+  //const Subtotal = data.reduce((total, purchase) => total + purchase.totalPrice, 0);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -143,7 +143,7 @@ function Cart() {
 
               <div className="flex justify-between !text-base font-medium">
                 <dt>Total</dt>
-                <dd>₹{Subtotal}</dd>
+                <dd>₹7899</dd>
               </div>
             </dl>
 

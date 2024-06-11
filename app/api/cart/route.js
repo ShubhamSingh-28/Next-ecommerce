@@ -16,6 +16,7 @@ export const GET = async()=>{
         }
         
         const viewCart  = await Cart.aggregate([
+            { $match: { user: session.user._id } },
             {
                 $lookup: {
                     from: "products",
