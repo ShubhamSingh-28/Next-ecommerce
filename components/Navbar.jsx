@@ -29,7 +29,7 @@ function Navbar() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-/*
+
   useEffect(()=>{
     const fetchcount = async () => {
       try {
@@ -46,7 +46,7 @@ function Navbar() {
   
   },[])
 
-  */
+  
   return (
     <section>
       <div
@@ -64,7 +64,7 @@ function Navbar() {
           <nav className={`flex flex-grow lg:gap-8 gap-3 pb-1 pt-2  justify-end`}>
           <Link className=' hidden md:block '  prefetch={true} href="/cart">
     <ShoppingCart className={`absolute top-6 `}/>
-            {/* <span className=' relative bottom-2 left-3 bg-red-600 rounded-full px-2 py-1 text-white'>{data ? data?.cartCount : 0}</span>*/}
+            <span className=' relative bottom-2 left-3 bg-red-600 rounded-full px-2 py-1 text-white'>{data ? data?.cartCount : 0}</span>
     </Link>
     <ModeToggle/>
   {
@@ -84,7 +84,7 @@ function Navbar() {
           <DropdownMenuItem>
           <Link className=' md:hidden'  href="/cart">
     <ShoppingCart className=' absolute'/>
-            {/* <span className=' relative bottom-3 left-5 bg-red-600 rounded-full px-2 py-1 text-white'>{data ? data?.cartCount : 0 }</span>*/}
+            <span className=' relative bottom-3 left-5 bg-red-600 rounded-full px-2 py-1 text-white'>{data ? data?.cartCount : 0 }</span>
     </Link>
           </DropdownMenuItem>
         <DropdownMenuItem onClick={() => signOut()}>
