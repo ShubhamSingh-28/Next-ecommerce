@@ -98,7 +98,7 @@ function Cart() {
       <div className="mt-8">
         <ul className="space-y-4">
           {data.map((p,index)=>
-          <div key={index} className="flex items-center gap-4">
+          <div key={index} className="flex items-center gap-2">
           <img
             src={p?.product?.images?.[0].url}
             alt=""
@@ -111,8 +111,8 @@ function Cart() {
             <h3 className=" text-sm ">{p?.product?.category}</h3>
           </div>
 
-          <div className="flex flex-1 items-center justify-end gap-2">
-            <div className=" flex justify-evenly items-center gap-1">
+          <div className="flex flex-1 items-center justify-end gap-1">
+            <div className=" flex justify-evenly items-center gap-0">
             
           <Button disabled={p.quantity===1}  className=" rounded-full" variant={"ghost"}>
           <Minus onClick={()=>handleMinus({id:p?.product?._id})}/>
