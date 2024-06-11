@@ -54,7 +54,7 @@ function Cart() {
         const prod = await fetch('/api/cart');
         const data2 = await prod.json();
         console.log(data2);
-        setData([data2.viewCart]);
+        setData(data2.viewCart);
         
       } catch (error) {
         console.error(error);
