@@ -15,7 +15,16 @@ export const GET = async()=>{
           return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
         
-        const viewCart  = await Cart.find({user: session.user._id}).lean().populate("product")
+        const viewCart  = await Cart.aggregate([
+            {
+                $lookup: {
+                    from: "products",
+                    localField: "product",
+                    foreignField: "_id",
+                    as: "product"
+                  }
+            }
+        ])
       
         return NextResponse.json({viewCart, message: " cart getting successfully" }, { status: 200 });
     } catch (error) {
