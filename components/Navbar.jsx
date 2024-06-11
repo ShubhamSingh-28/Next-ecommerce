@@ -55,7 +55,7 @@ function Navbar() {
 
         }`}
       >
-        <div className="flex items-center w-full p-2 ">
+        <div className="flex items-center w-full lg:p-2  p-1">
           <Link href={"/"}>
         <span className={`font-bold tracking-tighter uppercase lg:text-2xl text-2xl `}>
            Shopsy
