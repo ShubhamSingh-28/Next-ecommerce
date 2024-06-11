@@ -16,8 +16,8 @@ export const GET = async()=>{
         }
         
         const viewCart  = await Cart.find({user: session.user._id}).lean().populate("product")
-        
-        return NextResponse.json({viewCart, message: "Product added in cart successfully" }, { status: 200 });
+      
+        return NextResponse.json({viewCart, message: " cart getting successfully" }, { status: 200 });
     } catch (error) {
         console.error("Error getting Cart product:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

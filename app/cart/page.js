@@ -90,7 +90,7 @@ function Cart() {
 
 <section className=' py-28'>
   <div className="mx-auto shadow-lg max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-full">
       <header className="text-center">
         <h1 className="text-xl font-bold  sm:text-3xl">Your Cart</h1>
       </header>
@@ -111,8 +111,8 @@ function Cart() {
             <h3 className=" text-sm ">{p?.product?.category}</h3>
           </div>
 
-          <div className="flex flex-1 items-center justify-end gap-5">
-            <div className=" flex justify-evenly items-center gap-2">
+          <div className="flex flex-1 items-center justify-end gap-2">
+            <div className=" flex justify-evenly items-center gap-1">
             
           <Button disabled={p.quantity===1}  className=" rounded-full" variant={"ghost"}>
           <Minus onClick={()=>handleMinus({id:p?.product?._id})}/>
