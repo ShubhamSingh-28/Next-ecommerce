@@ -34,7 +34,7 @@ function Admin() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+   // e.preventDefault();
     const formData = new FormData();
     for (let i = 0; i < images.length; i++) {
       formData.append('images', images[i]); // Append each file to the FormData object
