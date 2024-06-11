@@ -77,7 +77,7 @@ function Cart() {
     <div>
         <Navbar/>
        
-  {/*
+  
 <section className=' py-28'>
   <div className="mx-auto shadow-lg max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
     <div className="mx-auto max-w-full">
@@ -176,7 +176,7 @@ function Cart() {
     </div>
   </div>
 </section>
-*/}
+
 <Footer/>
     </div>
   )
