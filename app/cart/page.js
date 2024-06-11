@@ -72,7 +72,7 @@ function Cart() {
   }
   console.log(data);
   
-  //const Subtotal = data.reduce((total, purchase) => total + purchase.totalPrice, 0);
+  const Subtotal = data.reduce((total, purchase) => total + purchase.totalPrice, 0);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -100,7 +100,7 @@ function Cart() {
           {data.map((p,index)=>
           <div key={index} className="flex items-center gap-4">
           <img
-            src={p?.product?.images[0].url}
+            src={p?.product?.images?.[0].url}
             alt=""
             className="size-16 rounded object-cover"
           />
@@ -143,7 +143,7 @@ function Cart() {
 
               <div className="flex justify-between !text-base font-medium">
                 <dt>Total</dt>
-                <dd>₹7899</dd>
+                <dd>₹{Subtotal}</dd>
               </div>
             </dl>
 
