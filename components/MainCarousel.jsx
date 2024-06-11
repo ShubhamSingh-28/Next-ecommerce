@@ -66,7 +66,7 @@ function MainCarousel() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
     responsive: [
       {
@@ -81,7 +81,7 @@ function MainCarousel() {
 
  
   return (
-    <div className=' my-4  lg:w-[95%] w-[85%] m-auto '>
+    <div className=' my-4  lg:w-[95%] w-[84%]  m-auto '>
       <div className=' text-end px-5 pt-3'>
       <Button className=" text-xl rounded-xl" variant="destructive">
         <Link href={"products"}>
@@ -92,9 +92,9 @@ function MainCarousel() {
       <Slider {...settings}>
   
       {data.map((d, index) => (
-          <div key={index} className="relative -left-10  lg:-left-9 md:-left-10 sm:-left-5    m-10 flex max-w-sm  flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+          <div key={index} className="relative -left-10  lg:-left-9 md:-left-10 sm:-left-5    m-10 flex lg:max-w-72 max-w-sm flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-md">
           
-            <Image className=" h-[270px] lg:h-[280px]" width={500} height={100} src={d.images?.[0].url} alt="product image" />
+            <Image className=" h-[270px]  lg:h-[270px]" width={500} height={100} src={d.images?.[0].url} alt="product image" />
          
           <div className="mt-4 px-5 pb-5">
            

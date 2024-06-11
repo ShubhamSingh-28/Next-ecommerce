@@ -51,11 +51,11 @@ function Navbar() {
     <section>
       <div
         className={`fixed z-50 shadow-lg w-full lg:px-8 px-5 py-0 transition-all duration-1000 rounded-full mt-4 inset-x-0 mx-auto ease-in-out transform ${
-          atTop ? 'max-w-6xl' : '  bg-opacity-90 backdrop-blur-xl lg:max-w-4xl md:max-w-3xl max-w-[90%]'
+          atTop ? 'max-w-5xl' : '  bg-opacity-90 backdrop-blur-xl lg:max-w-4xl md:max-w-3xl max-w-[90%]'
 
         }`}
       >
-        <div className="flex items-center w-full lg:p-2  p-1">
+        <div className="flex items-center w-full lg:p-2 p-1">
           <Link href={"/"}>
         <span className={`font-bold tracking-tighter uppercase lg:text-2xl text-2xl `}>
            Shopsy
