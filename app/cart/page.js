@@ -66,6 +66,9 @@ function Cart() {
     setShouldRefetch(false)
   }, [shouldRefetch]);
 
+  if (!data.length) {
+    return(<div>Loading...</div>)
+  }
   
   const Subtotal = data.reduce((total, purchase) => total + purchase.totalPrice, 0);
 
