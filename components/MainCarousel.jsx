@@ -92,9 +92,9 @@ function MainCarousel() {
       <Slider {...settings}>
   
       {data.map((d, index) => (
-          <div key={index} className="relative -left-10  lg:-left-9 md:-left-10 sm:-left-5    m-10 flex lg:max-w-72 max-w-sm flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-md">
+          <div key={index} className="relative -left-10  lg:-left-9 md:-left-10 sm:-left-5    m-10 flex lg:max-w-[239px] max-w-sm flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-md">
           
-            <Image className=" h-[270px]  lg:h-[270px]" width={500} height={100} src={d.images?.[0].url} alt="product image" />
+            <Image className=" h-[270px]  lg:h-[250px]" width={500} height={100} src={d.images?.[0].url} alt="product image" />
          
           <div className="mt-4 px-5 pb-5">
            
