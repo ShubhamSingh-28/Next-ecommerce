@@ -12,8 +12,7 @@ import Footer from "@/components/Footer";
 function Cart() { 
   const { data: session } = useSession();
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+
   const [shouldRefetch, setShouldRefetch] = useState(false);
 
   if (!session?.user) redirect("/login")
@@ -56,38 +55,29 @@ function Cart() {
         const data2 = await prod.json();
        // console.log(data2);
         setData(data2.viewCart);
-        setLoading(false);
+        
       } catch (error) {
         console.error(error);
-        setError('Failed to fetch products');
-        setLoading(false);
+        
       }
     };
     fetchProducts();
     setShouldRefetch(false)
   }, [shouldRefetch]);
 
-  if (!data.length) {
-    return(<div>No product added in cart</div>)
-  }
-  //console.log(data);
+ 
+  console.log(data);
   
   const Subtotal = data.reduce((total, purchase) => total + purchase.totalPrice, 0);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
+ 
 
 
   return (
     <div>
         <Navbar/>
        
-
+  {/*
 <section className=' py-28'>
   <div className="mx-auto shadow-lg max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
     <div className="mx-auto max-w-full">
@@ -186,6 +176,7 @@ function Cart() {
     </div>
   </div>
 </section>
+*/}
 <Footer/>
     </div>
   )
