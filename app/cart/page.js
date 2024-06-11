@@ -54,7 +54,7 @@ function Cart() {
       try {
         const prod = await fetch('/api/cart');
         const data2 = await prod.json();
-        console.log(data2);
+       // console.log(data2);
         setData(data2.viewCart);
         setLoading(false);
       } catch (error) {
@@ -70,7 +70,7 @@ function Cart() {
   if (!data.length) {
     return(<div>Loading...</div>)
   }
-  console.log(data);
+  //console.log(data);
   
   const Subtotal = data.reduce((total, purchase) => total + purchase.totalPrice, 0);
 
