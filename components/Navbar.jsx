@@ -62,7 +62,7 @@ function Navbar() {
             </span>
             </Link>
           <nav className={`flex flex-grow lg:gap-8 gap-3 pb-1 pt-2  justify-end`}>
-          <Link className=' hidden md:block '  href={'/cart'}>
+          <Link className=' hidden md:block '  prefetch={true} href="/cart">
     <ShoppingCart className={`absolute top-6 `}/>
     <span className=' relative bottom-2 left-3 bg-red-600 rounded-full px-2 py-1 text-white'>{data ? data?.cartCount : 0}</span>
     </Link>
