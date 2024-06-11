@@ -70,6 +70,7 @@ function Cart() {
   if (!data.length) {
     return(<div>Loading...</div>)
   }
+  console.log(data);
   
   const Subtotal = data.reduce((total, purchase) => total + purchase.totalPrice, 0);
 
