@@ -15,7 +15,7 @@ export const GET = async()=>{
           return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
         
-        const viewCart = await Cart.find({ user: session.user._id }).populate("product").cursor()
+        const viewCart = await Cart.find({ user: session.user._id }).populate("product").exec()
         return NextResponse.json({viewCart, message: " cart getting successfully" }, { status: 200 });
     } catch (error) {
         console.error("Error getting Cart product:", error);
