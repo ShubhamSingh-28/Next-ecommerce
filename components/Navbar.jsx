@@ -82,9 +82,9 @@ function Navbar() {
           </DropdownMenuItem>
           <DropdownMenuItem></DropdownMenuItem>
           <DropdownMenuItem>
-          <Link className=' md:hidden'  href={'/cart'}>
+          <Link className=' md:hidden'  href="/cart">
     <ShoppingCart className=' absolute'/>
-    <span className=' relative bottom-3 left-5 bg-red-600 rounded-full px-2 py-1 text-white'>{data ? data?.cartCount : 0 }</span>
+            {/* <span className=' relative bottom-3 left-5 bg-red-600 rounded-full px-2 py-1 text-white'>{data ? data?.cartCount : 0 }</span>*/}
     </Link>
           </DropdownMenuItem>
         <DropdownMenuItem onClick={() => signOut()}>
