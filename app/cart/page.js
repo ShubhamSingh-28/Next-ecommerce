@@ -53,7 +53,6 @@ function Cart() {
       try {
         const prod = await fetch('/api/cart');
         const data2 = await prod.json();
-        console.log(data2);
         setData(data2.viewCart);
         
       } catch (error) {
@@ -66,7 +65,7 @@ function Cart() {
   }, [shouldRefetch]);
 
  
-  console.log(data);
+  //console.log(data);
   
   const Subtotal = data.reduce((total, purchase) => total + purchase.totalPrice, 0);
 
@@ -91,15 +90,14 @@ function Cart() {
             data.map((p,index)=>
               <div key={index} className="flex items-center gap-2">
               <img
-                src={p?.product?.images?.[0].url}
+                src={p.productUrl}
                 alt=""
                 className="size-16 rounded object-cover"
               />
     
               <div>
-                <h3 className=" text-sm ">{p?.product?.name}</h3>
+                <h3 className=" text-sm ">{p.productName}</h3>
                 <h3 className=" text-sm ">₹{p.totalPrice}</h3>
-                <h3 className=" text-sm ">{p?.product?.category}</h3>
               </div>
     
               <div className="flex flex-1 items-center justify-end gap-1">
