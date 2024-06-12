@@ -78,7 +78,7 @@ function Cart() {
         <Navbar/>
        
   
-<section className=' py-28'>
+        <section className=' py-28'>
   <div className="mx-auto shadow-lg max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
     <div className="mx-auto max-w-full">
       <header className="text-center">
@@ -87,41 +87,44 @@ function Cart() {
 
       <div className="mt-8">
         <ul className="space-y-4">
-          {data.map((p,index)=>
-          <div key={index} className="flex items-center gap-2">
-          <img
-            src={p?.product?.images?.[0].url}
-            alt=""
-            className="size-16 rounded object-cover"
-          />
-
-          <div>
-            <h3 className=" text-sm ">{p?.product?.name}</h3>
-            <h3 className=" text-sm ">₹{p.totalPrice}</h3>
-            <h3 className=" text-sm ">{p?.product?.category}</h3>
-          </div>
-
-          <div className="flex flex-1 items-center justify-end gap-1">
-            <div className=" flex justify-evenly items-center gap-0">
-            
-          <Button disabled={p.quantity===1}  className=" rounded-full" variant={"ghost"}>
-          <Minus onClick={()=>handleMinus({id:p?.product?._id})}/>
-          </Button>
-              <div className="h-8 w-12 rounded border-gray-200 bg-gray-50  text-center text-lg text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-              >{p.quantity}</div>
-          <Button onClick={()=>handleAdd({id:p?.product?._id})} className=" rounded-full" variant={"ghost"}>
-              <Plus/>
-              </Button>
+          {data.length <=0 ? <div>No item in cart</div> : (
+            data.map((p,index)=>
+              <div key={index} className="flex items-center gap-2">
+              <img
+                src={p?.product?.images?.[0].url}
+                alt=""
+                className="size-16 rounded object-cover"
+              />
+    
+              <div>
+                <h3 className=" text-sm ">{p?.product?.name}</h3>
+                <h3 className=" text-sm ">₹{p.totalPrice}</h3>
+                <h3 className=" text-sm ">{p?.product?.category}</h3>
               </div>
-              <Link href={"/"}>
-              <button onClick={()=>handleClick({id:p?.product?._id})} className=" transition hover:text-red-600">
-              <Trash2/>
-            </button>
-              </Link>
-            
-          </div>
-        </div>
+    
+              <div className="flex flex-1 items-center justify-end gap-1">
+                <div className=" flex justify-evenly items-center gap-0">
+                
+              <Button disabled={p.quantity===1}  className=" rounded-full" variant={"ghost"}>
+              <Minus onClick={()=>handleMinus({id:p?.product})}/>
+              </Button>
+                  <div className="h-8 w-12 rounded border-gray-200 bg-gray-50  text-center text-lg text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                  >{p.quantity}</div>
+              <Button onClick={()=>handleAdd({id:p?.product})} className=" rounded-full" variant={"ghost"}>
+                  <Plus/>
+                  </Button>
+                  </div>
+                  <Link href={"/"}>
+                  <button onClick={()=>handleClick({id:p?.product})} className=" transition hover:text-red-600">
+                  <Trash2/>
+                </button>
+                  </Link>
+                
+              </div>
+            </div>
+              )
           )}
+          
           
 
          
