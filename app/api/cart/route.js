@@ -1,6 +1,5 @@
-import Cart from "@/models/Cart";
-import Product from "@/models/Product";  // Ensure these models are imported to register with mongoose
-import User from "@/models/User";       // Ensure these models are imported to register with mongoose
+import Cart from "@/models/cart";
+       // Ensure these models are imported to register with mongoose
 import { Connectdb } from "@/utils/ConnectDb";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
