@@ -5,6 +5,14 @@ const CartSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref:"Product"
     },
+    productName:{
+        type: String,
+        required: true
+    },
+    productUrl:{
+        type: String,
+        required: true
+    },
     user:{
         type: Schema.Types.ObjectId,
         ref:"User"

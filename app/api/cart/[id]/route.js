@@ -32,6 +32,8 @@ export const POST = async(req,{params})=>{
             cartItem = await Cart.create({
                 user: session.user._id,
                 product: param.id,
+                productUrl:product.images?.[0].url,
+                productName:product.name,
                 quantity: 1,
                 totalPrice: product.price
             });
