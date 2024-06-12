@@ -15,13 +15,15 @@ export const POST = async(req,{params})=>{
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
         const param = params
+        console.log(param);
         const product = await Product.findOne({_id:param.id });
+        console.log(product);
         if (!product) {
             return NextResponse.json({ error: "Product not found" }, { status: 404 });
         }
 
         // Check if the cart item already exists for the user and product
-        let cartItem = await Cart.findOne({ user: session.user._id, productid: param.id });
+        let cartItem = await Cart.findOne({ user: session.user._id, productId: param.id });
 
         if (cartItem) {
             cartItem.quantity += 1;
@@ -31,7 +33,7 @@ export const POST = async(req,{params})=>{
             // If the cart item does not exist, create a new cart item
             cartItem = await Cart.create({
                 user: session.user._id,
-                productid: param.id ,
+                productId: param.id ,
                 productName:product.name,
                 Pcategory:product.category,
                 productPrice:product.price,
