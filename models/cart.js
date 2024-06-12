@@ -1,17 +1,9 @@
 import mongoose, { Schema, model, models } from "mongoose";
 
 const CartSchema = new Schema({
-    productName: {
-        type: String,
-        required:true
-    },
-    productId: {
-        type: String,
-        required:true
-    },
-    Pcategory:{
-        type: String,
-        required:true
+    product: {
+        type: Schema.Types.ObjectId,
+        ref:"Product"
     },
     user:{
         type: Schema.Types.ObjectId,
@@ -21,22 +13,6 @@ const CartSchema = new Schema({
         type: Number,
         required: true
     },
-    productPrice: {
-        type: Number,
-        required:true
-    },
-    Pimages:[
-        {
-            public_id:{
-                type:String,
-                required:true
-            },
-            url:{
-                type:String,
-                required:true
-            }
-        }
-    ],
     totalPrice:{
         type: Number,
         required: true
