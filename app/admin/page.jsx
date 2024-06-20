@@ -49,6 +49,7 @@ function Admin() {
     
     try {
       const res = await axios.post('/api/product', formData);
+      console.log(res);
     } catch (error) {
       console.error('Error creating product:', error);
     }

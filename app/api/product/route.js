@@ -31,6 +31,8 @@ export const POST = async (req) => {
     const stocks = data.get("stocks");
    
 
+    console.log(img)
+
     if (!img) {
       return NextResponse.json({ error: "No image provided" }, { status: 400 });
     }
